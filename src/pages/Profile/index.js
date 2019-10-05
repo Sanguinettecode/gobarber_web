@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { Container } from './styles';
 import { updateUserRequest } from '~/store/modules/User/actions';
+import { signOut } from '~/store/modules/Auth/actions';
 import AvatarInput from './AvatarInput';
 
 export default function Profile() {
@@ -28,7 +29,9 @@ export default function Profile() {
         <Input name="confirmpassword" placeholder="Confirme a nova senha" />
         <button type="submit">Atualizar Perfil</button>
       </Form>
-      <button type="submit">Sair do GoBarber</button>
+      <button onClick={() => dispatch(signOut())} type="submit">
+        Sair do GoBarber
+      </button>
     </Container>
   );
 }
